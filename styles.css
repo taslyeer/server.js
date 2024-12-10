@@ -1,0 +1,245 @@
+/* Общие стили для страницы */
+body {
+  background-color: white;
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: row;
+  text-align: left;
+}
+
+.text-container {
+  margin-right: 50px;
+}
+
+h1 {
+  font-size: 30px; /* Уменьшили размер шрифта */
+  font-weight: bold;
+  margin-bottom: 20px;
+  margin-top: 30px;
+}
+
+button {
+  padding: 15px 30px;
+  font-size: 18px;
+  color: white;
+  background-color: #007bff;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-top: 20px;
+}
+
+button:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+p.bonus-description {
+  font-size: 16px; /* Уменьшили размер шрифта */
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+.images-container {
+  width: 250px;
+  height: 250px;
+  overflow: hidden; /* Обрезаем изображение, если оно выходит за контейнер */
+}
+
+img {
+  max-width: 100%; /* Ограничиваем максимальную ширину */
+  height: auto; /* Сохраняем пропорции */
+  object-fit: contain;
+  transition: opacity 0.5s ease-in-out;
+}
+
+/* Стили для модального окна */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.modal-content {
+  background-color: #f9f9f9;
+  margin: 10% auto;
+  padding: 20px;
+  border-radius: 15px;
+  width: 350px;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+.close {
+  color: #aaa;
+  font-size: 28px;
+  font-weight: bold;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  transition: color 0.3s;
+}
+
+.close:hover,
+.close:focus {
+  color: #007bff;
+  cursor: pointer;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.input-container {
+  position: relative;
+}
+
+input {
+  padding: 12px 12px 12px 40px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  transition: border 0.3s ease;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+input:focus {
+  border: 1px solid #007bff;
+  outline: none;
+}
+
+button[type="submit"] {
+  background-color: #007bff;
+  color: white;
+  border-radius: 8px;
+  border: none;
+  padding: 12px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+.cvv-container {
+  display: flex;
+  align-items: center; /* Выравнивание элементов по вертикали */
+  gap: 10px; /* Добавление пространства между полем ввода и кнопкой */
+  width: 100%; /* Чтобы все элементы занимали всю доступную ширину */
+}
+
+button#show-cvv {
+  background: none;
+  border: none;
+  color: #007bff;
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+button#show-cvv:hover {
+  text-decoration: underline;
+}
+
+/* Визуализация иконок через фоновые изображения */
+input[data-icon="card-number"] {
+  background-image: url('card-icon.svg');
+  background-size: 18px;
+  background-position: 12px center;
+  background-repeat: no-repeat;
+}
+
+input[data-icon="expiry-date"] {
+  background-image: url('calendar-icon.svg');
+  background-size: 18px;
+  background-position: 12px center;
+  background-repeat: no-repeat;
+}
+
+input[data-icon="cvv"] {
+  background-image: url('lock-icon.svg');
+  background-size: 18px;
+  background-position: 12px center;
+  background-repeat: no-repeat;
+}
+
+/* Анимация для модального окна */
+.modal.fade-in {
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* Жирный шрифт для текста в модальном окне */
+.modal-content h2,
+.modal-content label,
+.modal-content p {
+  font-weight: bold;
+}
+
+/* Мобильные стили */
+@media (max-width: 768px) {
+  .content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .text-container {
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+
+  h1 {
+    font-size: 24px; /* Уменьшаем размер текста на мобильных */
+  }
+
+  .images-container {
+    width: 200px;
+    height: 200px;
+  }
+
+  .modal-content {
+    width: 80%; /* Уменьшаем ширину модального окна */
+  }
+
+  .bonus-description {
+    font-size: 14px;
+  }
+
+  input,
+  button[type="submit"],
+  .cvv-container {
+    width: 100%;
+  }
+}

