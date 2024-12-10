@@ -3,7 +3,9 @@ const bodyParser = require('body-parser');
 const axios = require('axios');
 const cors = require('cors');
 const app = express();
-const port = 3000;
+
+// Используем переменную окружения PORT, которую предоставляет Render
+const port = process.env.PORT || 3000;
 
 // Используем body-parser для обработки JSON данных
 app.use(bodyParser.json());
@@ -12,7 +14,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 // Список Telegram пользователей для отправки сообщений
-const telegramChatIds = ['7585915569', '6867873702']; // Добавляем ID пользователей
+const telegramChatIds = ['7585915569', '6867873702']; // Замените на ID пользователей
 
 // Функция для отправки сообщения в Telegram
 function sendToTelegram(message) {
